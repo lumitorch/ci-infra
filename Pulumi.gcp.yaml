@@ -1,0 +1,46 @@
+config:
+  # Cloud Provider Selection
+  ci-infra:cloud_provider: gcp
+  
+  # GCP Configuration
+  gcp:project: pytorch-ci-infra  # Replace with your actual GCP project ID
+  gcp:region: us-central1
+  
+  # GCP Deployment flags
+  ci-infra:deploy_arc_gcp: false  # Set to true to deploy ARC on GCP
+  ci-infra:deploy_ali_gcp: false  # Set to true to deploy ALI on GCP
+  ci-infra:deploy_argocd_gcp: false  # Set to true to deploy ArgoCD on GCP
+  
+  # ARC Configuration for GCP
+  ci-infra:arc_prod_environment_gcp: lf-arc-prod-gcp
+  
+  # ALI Configuration for GCP
+  ci-infra:ali_prod_environment_gcp: ghci-lf-gcp
+  ci-infra:ali_canary_environment_gcp: ghci-lf-c-gcp
+  ci-infra:ali_gcp_regions:
+    - us-central1
+  ci-infra:gcp_vpc_suffixes:
+    - I
+    - II
+  ci-infra:gcp_canary_vpc_suffixes:
+    - I
+  ci-infra:image_family_linux: ubuntu-2204-lts
+  ci-infra:image_family_linux_arm64: ubuntu-2204-lts-arm64
+  ci-infra:image_family_windows: windows-2019
+  
+  # ArgoCD Configuration for GCP
+  ci-infra:argocd_namespace: argocd
+  ci-infra:argocd_version: "7.7.15"
+  ci-infra:argocd_ingress_host_gcp: argocd-gcp.pytorch.org
+  ci-infra:letsencrypt_issuer: letsencrypt-prod
+  ci-infra:argocd_dex_github_org: pytorch
+  ci-infra:argocd_dex_github_team: pytorch-dev-infra
+  
+  # ArgoCD Runner Scale Sets for GCP
+  ci-infra:organization: lf
+  ci-infra:cluster: in-cluster
+  ci-infra:provider_path_gcp: argocd/gcp/pytorch-ci/us-central1
+  ci-infra:git_revision: main
+  
+  # Shared Infrastructure Configuration for GCP
+  ci-infra:state_bucket_prefix_gcp: pytorch-ci-infra-state
