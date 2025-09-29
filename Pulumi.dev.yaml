@@ -1,0 +1,40 @@
+config:
+  # AWS Configuration
+  aws:region: us-east-1
+  
+  # Deployment flags - disabled by default for preview without AWS credentials
+  ci-infra:deploy_arc: false
+  ci-infra:deploy_ali: false
+  ci-infra:deploy_argocd: false
+  
+  # ARC Configuration
+  ci-infra:arc_prod_environment: lf-arc-prod
+  
+  # ALI Configuration
+  ci-infra:ali_prod_environment: ghci-lf
+  ci-infra:ali_canary_environment: ghci-lf-c
+  ci-infra:ali_aws_regions:
+    - us-east-1
+  ci-infra:aws_vpc_suffixes:
+    - I
+    - II
+  ci-infra:aws_canary_vpc_suffixes:
+    - I
+  ci-infra:ami_filter_linux: al2023-ami-2023.8.*-kernel-6.1-x86_64
+  ci-infra:ami_filter_linux_arm64: al2023-ami-2023.8.*-kernel-6.1-arm64
+  ci-infra:ami_filter_windows: Windows 2019 GHA CI - 20250825191007
+  
+  # ArgoCD Configuration
+  ci-infra:argocd_namespace: argocd
+  ci-infra:argocd_version: "7.7.15"
+  ci-infra:argocd_ingress_host: argocd.pytorch.org
+  ci-infra:letsencrypt_issuer: letsencrypt-prod
+  ci-infra:argocd_dex_github_org: pytorch
+  ci-infra:argocd_dex_github_team: pytorch-dev-infra
+  ci-infra:argocd_sa_terraform: terraform
+  
+  # ArgoCD Runner Scale Sets
+  ci-infra:organization: lf
+  ci-infra:cluster: in-cluster
+  ci-infra:provider_path: argocd/aws/391835788720/us-east-1
+  ci-infra:git_revision: main
